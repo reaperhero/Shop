@@ -1,4 +1,4 @@
-# 
+# Shop run tutorial
 
 ## 创建项目
 ```shell script
@@ -13,7 +13,6 @@ python3 manage.py createsuperuser
 python3 manage.py runserver
 ```
 
-## 生成迁移脚本并作用于数据库
 ## 数据库初始化
 ```sql
 create database Shop character set utf8mb4;
@@ -68,4 +67,11 @@ CREATE TABLE `detail`(
  PRIMARY KEY (`id`)
 )ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
  
+```
+
+## 生成迁移脚本并作用于数据库
+
+```shell script
+python3 manage.py makemigrations
+python3 manage.py migrate
 ```

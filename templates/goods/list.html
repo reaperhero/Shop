@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for type in typelist %}
+    {{ type.name }}
+{% endfor %}
+<hr/>
+
+{% for goods in goodslist %}
+    {{ goods.goods }}
+    {{ goods.company }}
+    {{ goods.price }}
+{% endfor %}
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>{{ context.info }}</p>
+<form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="username"><br/>
+    <input type="password" name="password" placeholder="password"><br/>
+    <input type="submit" value="登录">
+</form>
+</body>
+</html>
