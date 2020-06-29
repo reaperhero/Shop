@@ -9,7 +9,20 @@ from common.views import loadinfo
 def lists(request, page=1):
     '''商品列表页(搜索&分页)'''
     context = loadinfo(request) # 获取商品信息查询对象
-    goods = Goods.objects.all()
+    goods = Goods.objects
+
+    # 根据类型id查询
+    tid = request.GET.get('tid',None)
+    if tid:
+        goods = goods.filter(typeid=tid) # 根据typeid 查询goods
+
+    # 关键字查询
+    kw = request.GET.get('kw', None)
+    if kw:
+        # 过滤goods字段
+        goods = goods.filter(goods__contains=kw)
+    goods = goods.all()
+
     paginator = Paginator(goods, 4)  # 4以条每页创建分页对象
     try:
         goods = paginator.page(page)
