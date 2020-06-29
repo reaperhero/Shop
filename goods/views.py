@@ -77,5 +77,5 @@ def detail(request, gid):
     ob = Goods.objects.get(id=gid)
     ob.clicknum += 1  # 点击量加1
     ob.save()
-    context['goods'] = ob
+    context['good'] = ob
     return render(request, "goods/detail.html", context)

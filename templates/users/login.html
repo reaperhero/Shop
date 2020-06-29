@@ -7,6 +7,7 @@
 <body>
 <p>{{ context.info }}</p>
 <form method="post" action="{% url 'login' %}">
+    <span style="color: red">{{ info }}</span><br>
     {% csrf_token %}
     <input type="text" name="username" placeholder="username"><br/>
     <input type="password" name="password" placeholder="password"><br/>

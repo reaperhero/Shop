@@ -4,6 +4,9 @@ from django.shortcuts import render, redirect, HttpResponse
 from django.urls import reverse
 from common.models import Users
 
+def index(request):
+    return HttpResponse("电商网站首页")
+
 
 def login(request):
     '''会员登录表单'''
@@ -11,13 +14,13 @@ def login(request):
         return render(request, 'users/login.html')
     else:
         try:
-            print(request.POST)
-            print(request.POST['username'])
+            username=request.POST['username']
+            password=request.POST['password']
             # 根据账号获取登录者信息
-            user = Users.objects.get(username=request.POST['username'])
+            user = Users.objects.get(username=username)
             # 判断当前用户是否是后台管理员用户
             if user.state == 0 or user.state == 1:
-                if user.password == request.POST['password']:
+                if user.password == password:
                     # 此处登录成功，将当前登录信息放入到session中，并跳转页面
                     request.session['vipuser'] = user.toDict()
                     print('ok')
