@@ -73,10 +73,10 @@ class Goods(models.Model):
         return self.goods
 
     def toDict(self):
-        return {'id': self.id, 'typeid': self.typeid, 'goods': self.goods,
+        return {'id': self.id, 'typeid': self.typeid.id, 'goods': self.goods,
                 'company': self.company, 'price': self.price,
                 'store': self.store, 'num': self.num, 'clicknum': self.clicknum,
-                'state': self.state}
+                'state': self.state,'picname':self.picname.name }
 
     class Meta:
         # 单数时显示的名称
